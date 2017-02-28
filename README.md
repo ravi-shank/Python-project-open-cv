@@ -4,6 +4,7 @@
 #To run this project, 
 --------------------------------------------------------------------------------------------------------
 #Step 1: 
+Copy / clone my repository in your local machine.
 Install below softwares
 
 1. Python 2.7
@@ -17,16 +18,16 @@ Install below softwares
 Note : All softwares should be installed at their default directories.
 
 #Step 2 :
-After installing the above softwares we need to do one more thing, since this is the face recognition software we need the face module inside our python
-(C:\Python27\Lib\site-packages). For this i have already built the face module from binaries using this github(https://github.com/opencv/opencv_contrib).
-You can see there is a folder called face inside module folder. So i have already provided a file called cv2.pyd and all necessary .dll files in a folder called "Important files" in my repository.
-Go ahead and copy all the files (ie, cv2.pyd and .dll files and paste them inside C:\Python27\Lib\site-packages\ folder .
+After installing the above softwares we need to do one more thing, since this is a face recognition software we need the face module inside our python
+(C:\Python27\Lib\site-packages). For this i have already built the face module (only not all) from binaries using this github(https://github.com/opencv/opencv_contrib).
+You can see there is a folder called face inside module folder in opencv contrib github that i have mentioned. So i have already provided a file called cv2.pyd and all necessary .dll files in a folder called "Important files" in my repository.
+Go ahead and copy all the files (not folder)(ie, cv2.pyd and .dll files and paste them inside your C:\Python27\Lib\site-packages\ folder or wherever your python software is installed.
 
 PS: If you want to learn how to (cmake) build from binaries, then try this (http://audhootchavancv.blogspot.in/2015/08/how-to-install-opencv-30-and.html).
 
 #Step 3: 
-Go ahead and open the main.py file from my dowaloaded repository folder in Idle or any other python-compiler attched software like pycharms.
-Hit F5 in idle or press Run button in other case.
+Having performed all the above steps, go ahead and open the main.py file from my downloaded repository folder in Idle or with any other python-compiler attched software like pycharms etc.
+Hit F5 in idle if using default python interpreter.
 
 You have successfully run the software.
 #Note:
@@ -34,6 +35,9 @@ Your python-compiler location must be present in the OS environment variables if
 
 #To set the environment variable 
 Please visit here. (http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7)
+
+
+#In case you find any diffilculties in runnig or insatlling required softwares kindly reply.
 
 
 
