@@ -7,13 +7,15 @@
 Copy / clone my repository in your local machine.
 Install below softwares
 
-1. Python 2.7
+1. Python 2.7 (http://python.org/ftp/python/2.7.5/python-2.7.5.msi)
 
-2. Numpy
+2. Numpy      (http://sourceforge.net/projects/numpy/files/NumPy/1.7.1/numpy-1.7.1-win32-superpack-python2.7.exe/download)
 
-3. Matplotlib
+3. Matplotlib 
 
-4. OpenCV 3.0
+4. OpenCV 3.0    (http://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.4.6/OpenCV-2.4.6.0.exe/download)
+
+5. wxPython 3.0   (https://wxpython.org/download.php)
 
 Note : All softwares should be installed at their default directories.
 
