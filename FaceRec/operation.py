@@ -4,7 +4,10 @@ import cv2
 import os.path
 import sys
 import wx.lib.agw.buttonpanel as bp
+#Sfrom training_operation import *
 from ocr import *
+from New_Model import *
+from Delete_model import *
 
 if hasattr(sys, "frozen"):
     pathExe = sys.executable
@@ -99,14 +102,47 @@ def do_OnImage(self,event):
     # Doing layout
     buttonMenu3.DoLayout()
     vSizer3.Layout()
-    self.Layout()           # i was missing this.(button menu wasn't getting refreshed when video menu wa clicked)
+    self.Layout()           # i was missing this.(button menu wasn't getting refreshed when video menu was clicked)
+
+
+def do_OnTraining(self,event):
     
     
     
+    #creating buttons
+    self.btn_new_model    = wx.Button(self.training_panel, -1,label="new model")
+    self.btn_update_model = wx.Button(self.training_panel, -1, label="update")
+    self.btn_delete_model = wx.Button(self.training_panel, -1,label="delete")
+    self.btn_view_model   = wx.Button(self.training_panel, -1,label="view")
+
+    #binding buttons to functions
+    self.Bind(wx.EVT_BUTTON, lambda event:On_New_Model(event, self), self.btn_new_model)
+    self.Bind(wx.EVT_BUTTON, lambda event:On_update_Model(event, self), self.btn_update_model)
+    self.Bind(wx.EVT_BUTTON, lambda event:On_Delete_Model(event, self), self.btn_delete_model)
+    self.Bind(wx.EVT_BUTTON, lambda event:On_View_Model(event, self), self.btn_view_model)
+
+    #adding buttons to Boxsizer
+    self.vbox = wx.BoxSizer(wx.VERTICAL)    
+    self.training_panel.SetSizer(self.vbox)
+    
+    #adding buttons to vertical sizer vbox
+    self.vbox.Add(self.btn_new_model,0,wx.ALIGN_CENTER)
+    self.vbox.Add(self.btn_update_model,0,wx.ALIGN_CENTER)
+    self.vbox.Add(self.btn_delete_model,0,wx.ALIGN_CENTER)
+    self.vbox.Add(self.btn_view_model,0,wx.ALIGN_CENTER)
+
+    self.SetAutoLayout(True)
+    self.training_panel.SetSizer(self.vbox)
+    self.training_panel.Layout()
+    
+    self.training_panel.Show()
+    
+    self.Layout()
     
     
-    
-    
+    print "xxxx"    
+
+
 #-----------------------------------------------------Workings Functions for Recognition menu-------------------------------------------------------------------------------------------------#
     
 #-----------------------------------------------------Workings Functions for FaceRecog  button -------------------------------------------------------------------------------------------------#
@@ -120,10 +156,10 @@ def OnFaceButton(event,self):
     self.char.Enable(True)  # Diasbles the face button
 
     
-    self.vSizer1.Detach(self.buttonMenu1_2)
-    self.vSizer1.Remove(self.buttonMenu1_2)
+    #self.vSizer1.Detach(self.buttonMenu1_2)
+    #self.vSizer1.Remove(self.buttonMenu1_2)
     
-    #self.buttonMenu1_2.RemoveAllButtons()
+    self.buttonMenu1_2.Destroy()    # beacause of the options of Onfacebutton were coming when clicked on oncharbuttoon
     
     
     self.buttonMenu1_2= bp.ButtonPanel(self.work_panel, -1)
@@ -245,12 +281,7 @@ def OnCharButton(event,self):
     self.face.Enable(True)  # Diasbles the face button
 
     
-    self.vSizer1.Detach(self.buttonMenu1_2)
-    self.vSizer1.Remove(self.buttonMenu1_2)
-    
-    #self.buttonMenu1_2.RemoveAllButtons()
-    
-    
+    self.buttonMenu1_2.Destroy()    # beacause of the options of Onfacebutton was coming when clicked on oncharbuttoon
 
     
     print 'pass face'
@@ -268,13 +299,15 @@ def OnCharButton(event,self):
     self.Bind(wx.EVT_BUTTON, OCR_From_Web, self.web_icon)
     
     
+    
+    
     self.vSizer1.Add(self.buttonMenu1_2, 0, wx.EXPAND)
     
     
     # Doing layout
     self.buttonMenu1_2.DoLayout()
     self.vSizer1.Layout()
-    self.Layout()           # i was missing this.(button menu wasn't getting refreshed when video menu was clicked)
+    #self.Layout()           # i was missing this.(button menu wasn't getting refreshed when video menu was clicked)
     
 
 def OCR_From_Image(event):
@@ -393,3 +426,17 @@ def capture_Image(file_name, dir_loc):
     cv2.destroyAllWindows()
     print 'image written'
 
+
+def On_New_Model(self, event):
+    print "inside trng operaiton"
+    new_model_frame = New_Model_GUI(None, -1)
+    new_model_frame.Show()
+    new_model_frame.Update()
+
+def On_Delete_Model(self, event):
+    print "inside trng operaiton"
+    del_model_frame = Delete_model_GUI(None, -1)
+    del_model_frame.Show()
+    del_model_frame.Update()
+    
+    
