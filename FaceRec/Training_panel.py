@@ -47,4 +47,4 @@ class Training_panel(wx.Panel):
     def On_View_Model(self,event):
         MainUI.OnImage(self, event)
         
-        
+         
