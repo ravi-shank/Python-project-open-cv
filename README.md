@@ -35,7 +35,7 @@ You have successfully run the software.
 #Note:
 Your python-compiler location must be present in the OS environment variables if you are running the project from directories other than python.
 
-#To set the environment variable 
+#To set python environment variable 
 Please visit here. (http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7)
 
 
