@@ -39,7 +39,7 @@ Your python-compiler location must be present in the OS environment variables if
 Please visit here. (http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7)
 
 
-In case you find any diffilculties in runnig or installing required softwares kindlycomment.
+In case you find any diffilculties in running or installing required softwares kindly comment.
 
 
 
